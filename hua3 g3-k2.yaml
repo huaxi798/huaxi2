@@ -6,52 +6,40 @@ log-level: info
 
 proxies:
   # Trojan 节点
-  - name: "香港01"
+  - name: "Trojan 香港01"
     type: trojan
     server: down.asgssdwt.com
     port: 37010
     password: f9738720-b9f8-3e02-9906-c45b43e0f8e7
     sni: video.manuater.com
-    alpn:
-      - h2
-      - http/1.1
     udp: true
 
-  - name: "香港02"
+  - name: "Trojan 香港02"
     type: trojan
     server: down.asgssdwt.com
     port: 38030
     password: f9738720-b9f8-3e02-9906-c45b43e0f8e7
     sni: video.manuater.com
-    alpn:
-      - h2
-      - http/1.1
     udp: true
 
-  - name: "新加坡01"
+  - name: "Trojan 新加坡01"
     type: trojan
     server: down.asgssdwt.com
     port: 34020
     password: f9738720-b9f8-3e02-9906-c45b43e0f8e7
     sni: video.manuater.com
-    alpn:
-      - h2
-      - http/1.1
     udp: true
 
-  - name: "新加坡02"
+  - name: "Trojan 新加坡02"
     type: trojan
     server: down.asgssdwt.com
     port: 34030
     password: f9738720-b9f8-3e02-9906-c45b43e0f8e7
     sni: news.manuater.com
-    alpn:
-      - h2
-      - http/1.1
     udp: true
 
   # Vmess 节点
-  - name: "USA 01"
+  - name: "Vmess USA01"
     type: vmess
     server: usz1.fgmxc.top
     port: 23901
@@ -61,7 +49,7 @@ proxies:
     tls: false
     network: tcp
 
-  - name: "USA 02"
+  - name: "Vmess USA02"
     type: vmess
     server: usz1.fgmxc.top
     port: 23916
@@ -71,7 +59,7 @@ proxies:
     tls: false
     network: tcp
 
-  - name: "香港01"
+  - name: "Vmess 香港01"
     type: vmess
     server: hkz1.fgmxc.top
     port: 23913
@@ -81,7 +69,7 @@ proxies:
     tls: false
     network: tcp
 
-  - name: "日本01"
+  - name: "Vmess 日本01"
     type: vmess
     server: hjz9.fgmxc.top
     port: 23908
@@ -95,14 +83,14 @@ proxy-groups:
   - name: "自动选择"
     type: select
     proxies:
-      - "香港01"
-      - "香港02"
-      - "新加坡01"
-      - "新加坡02"
-      - "USA 01"
-      - "USA 02"
-      - "香港01"
-      - "日本01"
+      - "Trojan 香港01"
+      - "Trojan 香港02"
+      - "Trojan 新加坡01"
+      - "Trojan 新加坡02"
+      - "Vmess USA01"
+      - "Vmess USA02"
+      - "Vmess 香港01"
+      - "Vmess 日本01"
       - "DIRECT"
 
 rules:
