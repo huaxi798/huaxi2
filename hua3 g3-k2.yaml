@@ -1,0 +1,111 @@
+port: 7890
+socks-port: 7891
+allow-lan: true
+mode: Rule
+log-level: info
+
+proxies:
+  # Trojan 节点
+  - name: "香港01"
+    type: trojan
+    server: down.asgssdwt.com
+    port: 37010
+    password: f9738720-b9f8-3e02-9906-c45b43e0f8e7
+    sni: video.manuater.com
+    alpn:
+      - h2
+      - http/1.1
+    udp: true
+
+  - name: "香港02"
+    type: trojan
+    server: down.asgssdwt.com
+    port: 38030
+    password: f9738720-b9f8-3e02-9906-c45b43e0f8e7
+    sni: video.manuater.com
+    alpn:
+      - h2
+      - http/1.1
+    udp: true
+
+  - name: "新加坡01"
+    type: trojan
+    server: down.asgssdwt.com
+    port: 34020
+    password: f9738720-b9f8-3e02-9906-c45b43e0f8e7
+    sni: video.manuater.com
+    alpn:
+      - h2
+      - http/1.1
+    udp: true
+
+  - name: "新加坡02"
+    type: trojan
+    server: down.asgssdwt.com
+    port: 34030
+    password: f9738720-b9f8-3e02-9906-c45b43e0f8e7
+    sni: news.manuater.com
+    alpn:
+      - h2
+      - http/1.1
+    udp: true
+
+  # Vmess 节点
+  - name: "USA 01"
+    type: vmess
+    server: usz1.fgmxc.top
+    port: 23901
+    uuid: aa0d484d-b75c-4eaa-876f-f805fc348ecb
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: tcp
+
+  - name: "USA 02"
+    type: vmess
+    server: usz1.fgmxc.top
+    port: 23916
+    uuid: aa0d484d-b75c-4eaa-876f-f805fc348ecb
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: tcp
+
+  - name: "香港01"
+    type: vmess
+    server: hkz1.fgmxc.top
+    port: 23913
+    uuid: aa0d484d-b75c-4eaa-876f-f805fc348ecb
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: tcp
+
+  - name: "日本01"
+    type: vmess
+    server: hjz9.fgmxc.top
+    port: 23908
+    uuid: aa0d484d-b75c-4eaa-876f-f805fc348ecb
+    alterId: 0
+    cipher: auto
+    tls: false
+    network: tcp
+
+proxy-groups:
+  - name: "自动选择"
+    type: select
+    proxies:
+      - "香港01"
+      - "香港02"
+      - "新加坡01"
+      - "新加坡02"
+      - "USA 01"
+      - "USA 02"
+      - "香港01"
+      - "日本01"
+      - "DIRECT"
+
+rules:
+  - DOMAIN-SUFFIX,google.com,自动选择
+  - DOMAIN-SUFFIX,youtube.com,自动选择
+  - MATCH,DIRECT
